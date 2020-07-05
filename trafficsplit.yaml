@@ -1,0 +1,22 @@
+---
+apiVersion: split.smi-spec.io/v1alpha1
+kind: TrafficSplit
+metadata:
+  namespace: emojivoto
+  name: voting
+spec:
+  service: voting-svc
+  backends:
+    - service: voting-svc-east
+      weight: 1
+---
+apiVersion: split.smi-spec.io/v1alpha1
+kind: TrafficSplit
+metadata:
+  namespace: emojivoto
+  name: emoji
+spec:
+  service: emoji-svc
+  backends:
+    - service: emoji-svc-west
+      weight: 1
